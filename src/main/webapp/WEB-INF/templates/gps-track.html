@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>江铃实顺</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/css/screen.css}"/>
+    <script th:src="@{/resources/js/config.js}"></script>
+    <script th:src="@{/resources/js/jquery/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/resources/ECharts/echarts.min.js}"></script>
+    <script th:src="@{/resources/ECharts/theme/customed.js}"></script>
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=a8cZLm91URv8FKEGDZG3TFpI"></script>
+
+</head>
+
+<body>
+<div class="bgs">
+    <div class="bg" style="background-color: #ddd;"></div>
+</div>
+<div class="title">
+    <div class="titlebg">
+        <div id="logo"></div>
+    </div>
+</div>
+<div style="position:absolute; top:90px;left:15px; font-size:18px;">
+    <a href="javascript:;" onclick="window.history.go(-1);"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;返&nbsp;回</a>
+</div>
+<div class="_body">
+    <div id="monitor">
+        <div id="allmap"></div>
+    </div>
+</div>
+
+
+</body>
+
+<script th:src="@{/resources/js/page/gps-track.js}"></script>
+
+</html>
+

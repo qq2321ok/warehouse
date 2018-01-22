@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实顺物流后台管理</title>
+</head>
+<body>
+
+<header class="header black-bg" th:fragment="header">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="导航切换"></div>
+    </div>
+    <!--logo start-->
+    <a href="/app/index" class="logo"><b>实顺物流后台管理</b></a>
+    <!--logo end-->
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="javascript:" onclick="$('#logoutForm').submit();">注销</a></li>
+        </ul>
+    </div>
+</header>
+
+<aside th:fragment="aside">
+    <div id="sidebar" class="nav-collapse ">
+        <ul class="sidebar-menu" id="nav-accordion">
+
+            <p class="centered"><a href="javascript:;"><img src="/example/assets/img/ui-sam.jpg" class="img-circle"
+                                                            width="60"></a></p>
+            <h5 class="centered">admin</h5>
+
+            <li class="mt">
+                <a class="active" href="/app/index">
+                    <i class="fa fa-dashboard"></i>
+                    <span>主控台</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:">
+                    <i class="fa fa-desktop"></i>
+                    <span>大屏详细页面</span>
+                </a>
+                <ul class="sub">
+                    <li><a target="_blank" href="/app/view/gps">区域一GPS信息</a></li>
+                    <li><a target="_blank" href="/app/view/weather">区域一天气</a></li>
+                    <li><a target="_blank" href="/app/view/area2_1">区域二屏一</a></li>
+                    <li><a target="_blank" href="/app/view/area2_2">区域二屏二</a></li>
+                    <li><a target="_blank" href="/app/view/area3_1">区域三屏一</a></li>
+                    <li><a target="_blank" href="/app/view/area3_2">区域三屏二</a></li>
+                    <li><a target="_blank" href="/app/view/area3_3">区域三屏三</a></li>
+                    <li><a target="_blank" href="/app/view/monitor">视频监控</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a href="javascript:">
+                    <i class="fa fa-desktop"></i>
+                    <span>大屏展示</span>
+                </a>
+                <ul class="sub">
+                    <li><a target="_blank" href="/app/view/gps?sc=1">区域一(GPS、天气)</a></li>
+                    <li><a target="_blank" href="/app/view/area2_1?sc=1">区域二(业务报表)</a></li>
+                    <li><a target="_blank" href="/app/view/area3_1?sc=1">区域三(业务报表)</a></li>
+                    <li><a target="_blank" href="/app/view/monitor?sc=1">视频监控</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a href="javascript:">
+                    <i class="fa fa-desktop"></i>
+                    <span>监控管理</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/app/place/search">安装地点配置</a></li>
+                    <li><a href="/app/monitor/search">设备管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<div class="_nav _nav_close" th:fragment="_nav">
+    <ul class="list-unstyled ul-1">
+        <li>
+            <label><span class="caret"></span>&nbsp;&nbsp;大屏详细页面</label>
+            <ul class="list-unstyled ul-2">
+                <li><a href="/app/view/gps">GPS信息</a></li>
+                <li><a href="/app/view/weather">城市天气</a></li>
+                <li><a href="/app/view/area2_1">区域二屏一</a></li>
+                <li><a href="/app/view/area2_2">区域二屏二</a></li>
+                <li><a href="/app/view/area3_1">区域三屏一</a></li>
+                <li><a href="/app/view/area3_2">区域三屏二</a></li>
+                <li><a href="/app/view/area3_3">区域三屏三</a></li>
+                <li><a target="_blank" href="/app/view/monitor">视频监控</a></li>
+            </ul>
+        </li>
+        <li>
+            <label><span class="caret"></span>&nbsp;&nbsp;大屏展示</label>
+            <ul class="list-unstyled ul-2">
+                <li><a href="/app/view/gps?sc=1">区域一</a></li>
+                <li><a href="/app/view/area2_1?sc=1">区域二</a></li>
+                <li><a href="/app/view/area3_1?sc=1">区域三</a></li>
+                <li><a href="/app/view/monitor?sc=1">视频监控</a></li>
+            </ul>
+        </li>
+        <li>
+            <label><span class="caret"></span>&nbsp;&nbsp;监控管理</label>
+            <ul class="list-unstyled ul-2">
+                <li><a href="/app/place/search/">安装地点配置</a></li>
+                <li><a href="/app/monitor/search">设备管理</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="toggle"></div>
+    <script>
+        $(function() {
+            $("._nav .toggle").click(function () {
+                    var nav =  $("._nav");
+                    if(nav.hasClass("_nav_open")) {
+                        nav.removeClass("_nav_open");
+                        nav.addClass("_nav_close");
+                    } else {
+                        nav.removeClass("_nav_close");
+                        nav.addClass("_nav_open");
+
+                        if ($("._toggle").length > 0 && $("#jkxx").hasClass("jkxx_close")) {
+                            $("._toggle ._close").hide();
+                            $("._toggle ._open").show();
+                            $("#jkxx").removeClass("jkxx_close");
+                            $("#jkview").removeClass("jkview_open");
+                        }
+                    }
+                }
+            );
+            $("._nav .ul-1 > li > label").click(function () {
+                $(this).parent().toggleClass("active")
+                $(this).next().toggle("fast");
+            });
+
+        });
+    </script>
+</div>
+
+</body>
+</html>

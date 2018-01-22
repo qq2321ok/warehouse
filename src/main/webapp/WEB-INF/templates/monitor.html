@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>江铃实顺</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/style.css}"/>
+    <script th:src="@{/resources/js/config.js}"></script>
+    <script th:src="@{/resources/js/jquery/jquery-1.11.1.min.js}" ></script>
+    <script th:src="@{/resources/js/ehigher.js}" ></script>
+    <script th:src="@{/resources/js/page/menu.js}" ></script>
+    <script id="videonode" th:src="@{/resources/js/page/codebase/webVideoCtrl.js}"></script>
+    <script th:src="@{/resources/js/page/monitor.js}"></script>
+</head>
+
+<body>
+<div class="bgs">
+    <div class="bg"></div>
+</div>
+<div class="title">
+    <div class="titlebg">
+        <div id="logo"></div>
+       <!-- <div class="icon_exit title_menu">注销</div>
+        <div class="icon_help title_menu">帮助</div>
+        <div class="icon_admin title_menu">admin</div>-->
+    </div>
+</div>
+
+<div class="_body">
+    <!--中间内容-->
+    <div id="jkxx" class="jkxx_close">
+        <!--监控信息-->
+        <div class="_border">
+            <div class="_border_body">
+                <div class="_toggle">
+                    <a class="_open" href="javascript:;" title="隐藏导航"><span class="glyphicon glyphicon-menu-left"></span></a>
+                    <a class="_close" href="javascript:;" title="显示导航"><span class="glyphicon glyphicon-menu-right"></span></a>
+                </div>
+                <div class="_mc"></div>
+            </div>
+        </div>
+
+        <div class="_border_title" id="jkxx_title">
+            <div class="_border_title_text">
+                监控信息
+            </div>
+        </div>
+
+        <div id="menu">
+            <ul>
+                <!--<li>
+                    <div class="menu_show_title menu_icon_1">
+                        <div class="menu_icon">
+                            <span></span>
+                        </div>
+                        <div class="menu_title">江苏安吉汽车物流</div>
+                    </div>
+                    <div class="menu_children" style="display: block">
+                        <ul>
+                            <li>
+                                <div class="menu_show_title menu_icon_2 status_1">
+                                    <div class="menu_icon">
+                                        <span></span>
+                                    </div>
+                                    <div class="menu_title">江苏安吉汽车物流</div>
+                                </div>
+                                <div class="menu_children" style="display: block">
+                                    <ul>
+                                        <li>
+                                            <div class="menu_show_title menu_icon_3 status_2">
+                                                <div class="menu_icon">
+                                                    <span></span>
+                                                </div>
+                                                <div class="menu_title">通道1</div>
+                                            </div>
+                                            <div class="menu_show_title menu_icon_3 status_2">
+                                                <div class="menu_icon">
+                                                    <span></span>
+                                                </div>
+                                                <div class="menu_title">通道2</div>
+                                            </div>
+                                            <div class="menu_show_title menu_icon_3 status_2">
+                                                <div class="menu_icon">
+                                                    <span></span>
+                                                </div>
+                                                <div class="menu_title">通道2</div>
+                                            </div>
+                                            <div class="menu_children">
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu_show_title menu_icon_2 status_1">
+                                    <div class="menu_icon">
+                                        <span></span>
+                                    </div>
+                                    <div class="menu_title">江苏安吉汽车物流</div>
+                                </div>
+                                <div class="menu_children">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <div id="jkview" class="jkview_open">
+        <!--监控信息-->
+        <div class="_border">
+            <div class="_border_body">
+                <div class="_mc"></div>
+            </div>
+        </div>
+
+        <div id="monitor">
+            <div id="monitor_div">
+                <div id="monitor_plugin"></div>
+            </div>
+            <div id="monitor_table_div">
+                <div class="monitor_table monitor_table_icon16" n="4"></div>
+                <div class="monitor_table monitor_table_icon9" n="3"></div>
+                <div class="monitor_table monitor_table_icon4" n="2"></div>
+                <div class="monitor_table monitor_table_icon_play" n="play"></div>
+            </div>
+        </div>
+    </div>
+
+    <div th:insert="~{templates :: _nav}"></div>
+</div>
+
+<!--<div id="switch">
+    <div class="menu_1">业务</div>
+    <div class="menu_2">监控</div>
+    <div class="menu_3">轨迹</div>
+</div>-->
+
+</body>
+
+</html>
+

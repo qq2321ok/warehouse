@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>江铃实顺</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/css/screen.css}"/>
+    <script th:src="@{/resources/js/config.js}"></script>
+    <script th:src="@{/resources/js/jquery/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/resources/ECharts/echarts.min.js}"></script>
+    <script th:src="@{/resources/ECharts/theme/customed.js}"></script>
+    <script th:inline="javascript">var screen = /*[[${screen}]]*/ 0;</script>
+    <script th:src="@{/resources/js/templates/area3_3.js}"></script>
+</head>
+
+<body>
+    <div class="bgs">
+        <div class="bg"></div>
+    </div>
+    <div class="title">
+        <div class="titlebg">
+            <div id="logo"></div>
+        </div>
+    </div>
+    <div class="_body">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="table-data">
+                    <h3 class="data-title">当月预警提示</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>工厂/等级</th>
+                            <th>一级</th>
+                            <th>二级</th>
+                            <th>三级</th>
+                            <th>四级</th>
+                            <th>五级</th>
+                            <th>总数</th>
+                            <th>一级百分比</th>
+                            <th>二级百分比</th>
+                            <th>三级百分比</th>
+                            <th>四级百分比</th>
+                            <th>五级百分比</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="chart-bar" id="bar1"></div>
+
+            </div>
+            <div class="col-sm-6">
+                <h3 class="data-title">仓库信息</h3>
+                <div class="_row list_3 data_show">
+                    <ul>
+                        <li>
+                            <div class="data_bg_l"></div>
+                            <div class="data_bg">
+                                <div class="data_bg_title">
+                                    <span class="glyphicon glyphicon-home"></span>
+                                    <span class="chart_title">&nbsp;| 库存数量</span>
+                                </div>
+                                <div class="data_result" id="sumHouseWareVehicle"></div>
+                            </div>
+                            <div class="data_bg_r"></div>
+                        </li>
+                        <li>
+                            <div class="data_bg_l"></div>
+                            <div class="data_bg">
+                                <div class="data_bg_title">
+                                    <span class="glyphicon glyphicon-log-in"></span>
+                                    <span class="chart_title">&nbsp;| 入库数量</span>
+                                </div>
+                                <div class="data_result" id="intHouseWareVehicle"></div>
+                            </div>
+                            <div class="data_bg_r"></div>
+                        </li>
+                        <li>
+                            <div class="data_bg_l"></div>
+                            <div class="data_bg">
+                                <div class="data_bg_title">
+                                    <span class="glyphicon glyphicon-log-out"></span>
+                                    <span class="chart_title">&nbsp;| 出库数量</span>
+                                </div>
+                                <div class="data_result" id="outHouseWareVehicle"></div>
+                            </div>
+                            <div class="data_bg_r"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="chart-gauge" id="gauge"></div>
+            </div>
+
+        </div>
+        <div th:insert="~{templates :: _nav}"></div>
+    </div>
+</body>
+
+</html>
+

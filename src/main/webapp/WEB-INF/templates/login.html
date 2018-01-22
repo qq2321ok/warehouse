@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>江铃实顺 | 用户登录</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/resources/css/screen.css}"/>
+		<script th:src="@{/resources/js/jquery/jquery-1.11.1.min.js}" ></script>
+    </head>
+
+    <body>
+        <div class="container-fluid login-bg">
+            <div class="center-block login-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-2 title-truck">
+                        <img th:src="@{/resources/img/login/title.png}">
+                        <img th:src="@{/resources/img/login/truck.png}">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="login">
+                            <hr />
+                            <form action="/app/view/login" method="post">
+
+                                <small class="text-danger" th:if="${param.error} != null">用户名或密码错误</small>
+                                <small class="text-warning" th:if="${param.logout} != null">您已退出登录</small>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                                </div>
+
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox">记住用户名密码
+                                    </label>
+                                    <label class="pull-right">
+                                        <a href=""> 忘记密码？</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-default"></button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </body>
+
+</html>
+

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>江铃实顺</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/resources/css/screen.css}"/>
+        <script th:src="@{/resources/js/config.js}"></script>
+		<script th:src="@{/resources/js/jquery/jquery-1.11.1.min.js}" ></script>
+        <script th:inline="javascript">var screen = /*[[${screen}]]*/ 0;</script>
+        <script th:src="@{/resources/js/templates/area3_2.js}"></script>
+    </head>
+
+    <body>
+        <div class="bgs">
+            <div class="bg"></div>
+        </div>
+        <div class="title">
+            <div class="titlebg">
+                <div id="logo"></div>
+            </div>
+        </div>
+        <div class="_body">
+
+            <div class="table-data">
+                <h3 class="data-title">当月承运商效率</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>承运商</th>
+                                <th>在途正常率</th>
+                                <th>准时交付率</th>
+                                <th>APP扫描率</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+
+                </table>
+            </div>
+            <div th:insert="~{templates :: _nav}"></div>
+        </div>
+    </body>
+
+</html>
+

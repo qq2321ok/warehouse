@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>江铃实顺</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/resources/css/reset.css}">
+        <link rel="stylesheet" th:href="@{/resources/css/style.css}">
+        <link rel="stylesheet" th:href="@{/resources/font/HelveticaNeueLTPro-Ex.css}">
+		<script th:src="@{/resources/js/jquery/jquery-1.11.1.min.js}" ></script>
+        <script th:src="@{/resources/js/ehigher.js}" ></script>
+        <script th:src="@{/resources/ECharts/echarts.min.js}"></script>
+        <script th:src="@{/resources/ECharts/theme/customed.js}"></script>
+        <script th:src="@{/resources/js/templates/charts.js}"></script>
+    </head>
+
+    <body>
+        <div class="bgs">
+            <div class="bg"></div>
+        </div>
+        <div class="title">
+            <div class="titlebg">
+                <div id="logo"></div>
+                <!--<div class="icon_exit title_menu">注销</div>
+                <div class="icon_help title_menu">帮助</div>
+                <div class="icon_admin title_menu">admin</div>-->
+            </div>
+        </div>
+
+    <div class="_body">
+        <div class="_row list_2 data_button">
+            <ul>
+                <li>
+                    <div id="_today_button" class=""></div>
+                </li>
+                <li>
+                    <div id="_month_button" class="selected"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="_row list_5 data_show">
+            <ul>
+                <li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_1">a</span>
+                            <span class="chart_title">| 订单数</span>
+                        </div>
+                        <div class="data_result" id="sumOrder"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>
+                <li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_2">a</span>
+                            <span class="chart_title">| 仓库占用数量</span>
+                        </div>
+                        <div class="data_result" id="sumHouseWareVehicle"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>
+                <li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_3">a</span>
+                            <span class="chart_title">| 调度车辆数</span>
+                        </div>
+                        <div class="data_result" id="sumDispatchVehicle"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>
+                <!--<li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_4">a</span>
+                            <span class="chart_title">| 结算金额</span>
+                        </div>
+                        <div class="data_result" id="sumBalance"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>
+                <li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_5">a</span>
+                            <span class="chart_title">| 车辆公里数</span>
+                        </div>
+                        <div class="data_result" id="sumVehicleKm"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>-->
+                <li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_6">a</span>
+                            <span class="chart_title">| 入库数量</span>
+                        </div>
+                        <div class="data_result" id="intHouseWareVehicle"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>
+                <li>
+                    <div class="data_bg_l"></div>
+                    <div class="data_bg">
+                        <div class="data_bg_title">
+                            <span class="chart_icon chart_icon_7">a</span>
+                            <span class="chart_title">| 出库数量</span>
+                        </div>
+                        <div class="data_result" id="outHouseWareVehicle"></div>
+                    </div>
+                    <div class="data_bg_r"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="_row list_3 data_report">
+            <ul>
+                <li>
+                    <div class="_border">
+                        <div class="_border_body">
+                            <div class="_tr"></div>
+                            <div class="_tc"></div>
+                            <div class="_tl"></div>
+
+                            <div class="_br"></div>
+                            <div class="_bc"></div>
+                            <div class="_bl"></div>
+
+                            <div class="_mr"></div>
+                            <div class="_ml"></div>
+                            <div class="_mc"></div>
+                        </div>
+                    </div>
+                    <div class="_border_title">
+                        <div class="dashed_1"></div>
+                        <div class="dashed_2"></div>
+                        <div class="_border_title_text">
+                            车辆信息
+                        </div>
+                    </div>
+                    <div class="_report_content">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="vehicleCount" class="chart-pie"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="vehicleUsed" class="chart-pie"></div>
+                            </div>
+                        </div>
+                        <div id="vehicleDispatch" class="chart-bar">
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_border">
+                        <div class="_border_body">
+                            <div class="_tr"></div>
+                            <div class="_tc"></div>
+                            <div class="_tl"></div>
+
+                            <div class="_br"></div>
+                            <div class="_bc"></div>
+                            <div class="_bl"></div>
+
+                            <div class="_mr"></div>
+                            <div class="_ml"></div>
+                            <div class="_mc"></div>
+                        </div>
+                    </div>
+                    <div class="_border_title">
+                        <div class="dashed_1"></div>
+                        <div class="dashed_2"></div>
+                        <div class="_border_title_text">
+                            订单信息
+                        </div>
+                    </div>
+                    <div class="_report_content">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="finishRate" class="chart-pie"></div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div id="finished" class="chart-sm-bar"></div>
+                            </div>
+                        </div>
+                        <div id="orderSource" class="chart-bar">
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_border">
+                        <div class="_border_body">
+                            <div class="_tr"></div>
+                            <div class="_tc"></div>
+                            <div class="_tl"></div>
+
+                            <div class="_br"></div>
+                            <div class="_bc"></div>
+                            <div class="_bl"></div>
+
+                            <div class="_mr"></div>
+                            <div class="_ml"></div>
+                            <div class="_mc"></div>
+                        </div>
+                    </div>
+                    <div class="_border_title">
+                        <div class="dashed_1"></div>
+                        <div class="dashed_2"></div>
+                        <div class="_border_title_text">
+                            仓库司机
+                        </div>
+                    </div>
+                    <div class="_report_content">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="houseWareRate" class="chart-pie"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="driverCount" class="chart-pie"></div>
+                            </div>
+                        </div>
+                        <div id="vehicleModel" class="chart-bar">
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="_row list_1 data_table">
+            <ul>
+                <li>
+                    <div class="_border">
+                        <div class="_border_body">
+                            <div class="_tr"></div>
+                            <div class="_tc"></div>
+                            <div class="_tl"></div>
+
+                            <div class="_br"></div>
+                            <div class="_bc"></div>
+                            <div class="_bl"></div>
+
+                            <div class="_mr"></div>
+                            <div class="_ml"></div>
+                            <div class="_mc"></div>
+                        </div>
+                    </div>
+
+                    <div class="_border" id="orderData">
+                        <div class="_border_rows">
+                            <div class="_border_rows_td td1">订单号</div>
+                            <div class="_border_rows_td td2">订单时间</div>
+                            <div class="_border_rows_td td3">司机</div>
+                            <div class="_border_rows_td td4">完成时间</div>
+                            <div class="_border_rows_td td5">仓库</div>
+                            <div class="_border_rows_td td6">供应商</div>
+                        </div>
+                        <!--<div class="_border_rows">
+                            <div class="_border_rows_td td1">11111</div>
+                            <div class="_border_rows_td td2">2017-11-11 12:12:12</div>
+                            <div class="_border_rows_td td3">吴好帅</div>
+                            <div class="_border_rows_td td4">2017-11-13 12:12:12</div>
+                            <div class="_border_rows_td td5">仓库1</div>
+                            <div class="_border_rows_td td6">杨帅哥</div>
+                        </div>-->
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="switch">
+        <div class="menu_1">监控</div>
+        <div class="menu_2">业务</div>
+        <div class="menu_3">轨迹</div>
+    </div>
+
+    </body>
+
+</html>
+
